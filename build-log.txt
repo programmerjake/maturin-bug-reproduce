@@ -1,0 +1,264 @@
+Sending build context to Docker daemon  108.5kB
+Step 1/9 : FROM debian:buster
+ ---> ae8514941ea4
+Step 2/9 : RUN apt-get update && apt-get install -y python3-pip git curl
+ ---> Using cache
+ ---> f94f711e7f3f
+Step 3/9 : RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ ---> Using cache
+ ---> ddac03045ec1
+Step 4/9 : ENV PATH=/root/.cargo/bin:$PATH
+ ---> Using cache
+ ---> d0dc1bafc926
+Step 5/9 : RUN pip3 install --upgrade pip
+ ---> Using cache
+ ---> fbb5145b7d38
+Step 6/9 : RUN pip3 install maturin
+ ---> Using cache
+ ---> 3901c5c0c45b
+Step 7/9 : COPY . /root/maturin-bug-reproduce
+ ---> 6c04efb84171
+Step 8/9 : WORKDIR /root/maturin-bug-reproduce
+ ---> Running in 5719ecad7cf5
+Removing intermediate container 5719ecad7cf5
+ ---> 53f278e5167d
+Step 9/9 : RUN pip3 install -vvv .
+ ---> Running in 5bc71783e668
+Non-user install because site-packages writeable
+Created temporary directory: /tmp/pip-ephem-wheel-cache-7aktjn_a
+Created temporary directory: /tmp/pip-req-tracker-iufz24u5
+Initialized build tracking at /tmp/pip-req-tracker-iufz24u5
+Created build tracker: /tmp/pip-req-tracker-iufz24u5
+Entered build tracker: /tmp/pip-req-tracker-iufz24u5
+Created temporary directory: /tmp/pip-install-bn2hyat_
+Processing /root/maturin-bug-reproduce
+  Created temporary directory: /tmp/pip-req-build-praz9b4k
+  Added file:///root/maturin-bug-reproduce to build tracker '/tmp/pip-req-tracker-iufz24u5'
+  Created temporary directory: /tmp/pip-build-env-dexv347x
+  Installing build dependencies: started
+[91m  Running command /usr/bin/python3 /usr/local/lib/python3.7/dist-packages/pip install --ignore-installed --no-user --prefix /tmp/pip-build-env-dexv347x/overlay --no-warn-script-location -v --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- maturin
+[0m[91m  Non-user install by explicit request
+[0m[91m  Created temporary directory: /tmp/pip-ephem-wheel-cache-pkbz_twn
+[0m[91m  Created build tracker: /tmp/pip-req-tracker-iufz24u5
+  Entered build tracker: /tmp/pip-req-tracker-iufz24u5
+[0m[91m  Created temporary directory: /tmp/pip-install-qclz0fvp
+[0m[91m  1 location(s) to search for versions of maturin:
+  * https://pypi.org/simple/maturin/
+[0m[91m  Fetching project page and analyzing links: https://pypi.org/simple/maturin/
+[0m[91m  Getting page https://pypi.org/simple/maturin/
+[0m[91m  Found index url https://pypi.org/simple
+[0m[91m  Getting credentials from keyring for https://pypi.org/simple
+[0m[91m  Getting credentials from keyring for pypi.org
+[0m[91m  Looking up "https://pypi.org/simple/maturin/" in the cache
+[0m[91m  Request header has "max_age" as 0, cache bypassed
+[0m[91m  Starting new HTTPS connection (1): pypi.org:443
+[0m[91m  https://pypi.org:443 "GET /simple/maturin/ HTTP/1.1" 304 0
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/3e/94/81aaaa249ef13605483b1210605dc847e489f42d5c6240b02b44f9ee423c/maturin-0.7.0-py2.py3-none-win32.whl#sha256=a645dacae4209e3e4776451f76c5472ce80d1e97755c7c591d50176e8675667f (from https://pypi.org/simple/maturin/)
+    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/f5/57/370b26fd1417e55a1ea37af33a68bf19d524cc13786c27508bc557025fba/maturin-0.7.0-py2.py3-none-win_amd64.whl#sha256=aee29227e22c3bdb854d03107aa2c78d2766268daa26148ad2ab581f207a318a (from https://pypi.org/simple/maturin/)
+    Skipping link: none of the wheel's tags match: py2-none-manylinux1_i686, py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/22/cb/ba98c97e04ae540f4f635b62bc3053c2e5cb3b939623551a05421996e0e4/maturin-0.7.1_beta.1-py2.py3-none-manylinux1_i686.whl#sha256=95354145c984c8359292d970b629ebf387bd71da6c8f8babcb9df0ff9470c7cc (from https://pypi.org/simple/maturin/)
+    Found link https://files.pythonhosted.org/packages/89/a2/c6ed13d754cdd261acef296c7aa479b832f9f07ec758014329540adbcbeb/maturin-0.7.1_beta.1-py2.py3-none-manylinux1_x86_64.whl#sha256=098a3d8c6b8a85fd01fd3469d0ea891e531a29425509a29beeb41ab64bdc629b (from https://pypi.org/simple/maturin/), version: 0.7.1-beta.1
+    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/d4/81/ba9412c101122166b7e86b3e378db2b9f048e42846c25ba1364bb20b16d6/maturin-0.7.1_beta.1-py2.py3-none-win32.whl#sha256=ceada7f801782f05a7ec4e5fac94af3d6795323139b85eec60a618d6b1813fb5 (from https://pypi.org/simple/maturin/)
+    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/1c/a9/6e54745fb892026224d284e813deeca91c45a9f71328537bc9226d46ebc7/maturin-0.7.1_beta.1-py2.py3-none-win_amd64.whl#sha256=df744409e6d6627ad8c8202394db3cc2aa2509cc2b3d9623995f08b97908bf34 (from https://pypi.org/simple/maturin/)
+    Found link https://files.pythonhosted.org/packages/1c/5e/67974b2db63d623e67d7da830fedc3b1834743367a0de4ba407ed10ef245/maturin-0.7.1_beta.1.tar.gz#sha256=1d7c011f5c62e0674bb6edac609bf7c49dfc9769422cdf6899b14b484f3a90e5 (from https://pypi.org/simple/maturin/), version: 0.7.1_beta.1
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-manylinux1_i686, py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/49/97/81f4de39f50f153d5cca040a98510bd1718267655ecb74e31f555c36e38e/maturin-0.7.1_beta.2-py2.py3-none-manylinux1_i686.whl#sha256=74d283bd561d176694366c191b1c25990e1543905811b43a95d9f3d059543881 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/01/ac/50e37235bc95b8ff6ed033c69a00d81ef4ebd7f9619580851f2e6eacb255/maturin-0.7.1_beta.2-py2.py3-none-manylinux1_x86_64.whl#sha256=e07861c4564f4009af75a129fe24926c4f5014b7ac13dce9b651a0150586bd3c (from https://pypi.org/simple/maturin/), version: 0.7.1-beta.2
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/bc/9f/0e2ffad98ce608f98d1c82aa1ec24eb2db189714a810c05250d179497358/maturin-0.7.1_beta.2-py2.py3-none-win32.whl#sha256=eb813db1851b416ca5dd2261041c15e603ca6082f7ff60a5ed4ec90c6c333af6 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/43/6f/747d3a7ea3889ef2f498fd546cfcfd9865d37b0eed9b91c6dc6ef51a2769/maturin-0.7.1_beta.2-py2.py3-none-win_amd64.whl#sha256=a5e18a5ebdf0e0e3326c460c66d390a42fea3d7c60f07e628a0b32af780a6a63 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/2a/6a/88241cbd9e42ff65f40cb862ce43b1a44dd1fe258e804b91e562057e1a30/maturin-0.7.1_beta.2.tar.gz#sha256=80d53c2ac82ebb36ed4aa47861e9f95693c6f92137c1c7e3044c822ce5ca6ba6 (from https://pypi.org/simple/maturin/), version: 0.7.1_beta.2
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-macosx_10_7_x86_64, py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/aa/4f/92c77a565a41cc7db2e52af7d825ee7df69836191b04d8105e847d38e25d/maturin-0.7.1-py2.py3-none-macosx_10_7_x86_64.whl#sha256=4d1509f0b493ef06074dd708d3fcbaf65e1e930744df2bec02ba6c169f0d7519 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-manylinux1_i686, py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/d1/68/844d5a66f5f585645f5a3ca4e4e88324ad67becd4c6a19b386a8a3bba028/maturin-0.7.1-py2.py3-none-manylinux1_i686.whl#sha256=c6cb3f2cd4e38fe008d95fc7d610dadf422d43a25563d7ed3267e4b3394dc8e5 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/20/38/e6a36ef140240de9d9639ebf24b978bf9bae912686d44c4f5ea3c74eaa3c/maturin-0.7.1-py2.py3-none-manylinux1_x86_64.whl#sha256=20a53ae792398b5976c6d9441ff445e1629e19ab8f72248328709f83c3fb00e9 (from https://pypi.org/simple/maturin/), version: 0.7.1
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/69/c6/b5d2be343f4492a58cd3731b4476e55ad8711402cb0f094f0cc7c5893149/maturin-0.7.1-py2.py3-none-win32.whl#sha256=c9409a135a92b63d7ea3cd3a45de2c0391975d6157f6ddfb780ddf6c833c19f1 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/d2/ba/836ac290d823b0682b9328414b641954fd914c20f7feeb621e4ca0a5d44f/maturin-0.7.1-py2.py3-none-win_amd64.whl#sha256=04cd8b96f572668e03f6cde2f8d425d74478d47ade3fa9bc5bc50cca7af0720d (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/1c/fd/4267595b8a2c7f2a03e5466b1e512dd4227ad1f295619b6e25be70fff825/maturin-0.7.1.tar.gz#sha256=51a56a8331af185e29886f6a874188825f0d10e85225f963e1caac12dbe18feb (from https://pypi.org/simple/maturin/), version: 0.7.1
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-macosx_10_7_x86_64, py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/c2/e7/65804f13ea1fde111246fc4918be941597133d628b98e97718e6cfbd7111/maturin-0.7.2-py2.py3-none-macosx_10_7_x86_64.whl#sha256=1e015309f97e34169b13e133d7ef74eaca3eade889cd4c66109b23f4b845187c (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-manylinux1_i686, py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/db/c0/34fdc5861700227829ff0bfa25d857620ba03dd3b38c92c6800539a70c7d/maturin-0.7.2-py2.py3-none-manylinux1_i686.whl#sha256=3c3fde596ca8b74d35e2d8874d9116b2f7cca66ab91f0c94ce78223f76d4fa89 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/db/89/134417045a0d4771d13bc67332ce2d1dcfced3c4a60ee0f81b28d79d7720/maturin-0.7.2-py2.py3-none-manylinux1_x86_64.whl#sha256=cbef38c4da788c87fd1a6ad9e71e786e6dd2180f7ed8ce4bca1d191f0fb427fd (from https://pypi.org/simple/maturin/), version: 0.7.2
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/ec/4b/a88a9b1e25e568505b70240fa16292cad164c48d8f68d17b73500e832cd3/maturin-0.7.2-py2.py3-none-win32.whl#sha256=d7bba3a4dd1c8fcf24eca45cbf1df650a8821954cc6f1b75f267b2c6bcd02812 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/8b/b7/dddb5e491fb535e639c5f7509f93191960139aec1c3d0e090c53816aabbd/maturin-0.7.2-py2.py3-none-win_amd64.whl#sha256=e89272805f04c5058fca4ebe9af63b4af8d6892ea46334ed9a1f2ad84aecd676 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/a1/75/949c4913c7a710d393260163eb8972862db8d3c46864fe64a16cc7d1237e/maturin-0.7.2.tar.gz#sha256=e47f7a1c31a9678d9d5d89bba033003fc25124062da2ea755ea90aed901f8445 (from https://pypi.org/simple/maturin/), version: 0.7.2
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/02/0b/44cffa5bbc82f4620bdcdf444772c6d7671d5cd21acbc0332371cd862773/maturin-0.7.4-py2.py3-none-win32.whl#sha256=f53aaa74d27eb6de663dd2525f5c444eebae7dbc9ec00f0df567db948840b07d (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/88/2c/bcfdb68b3347aeb67cf708fe1e246a8b7976b2edec3db2db433b5890f570/maturin-0.7.4-py2.py3-none-win_amd64.whl#sha256=de8cc7890eab2b346ab15fe2708dfa0dc0dd21df445bbb08f4cd55f4ae8809e2 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/bb/31/54a08d562961e5880010ae18105faadde2ec508c4826647d473e27575abd/maturin-0.7.5-py2.py3-none-win32.whl#sha256=da79bc28ac9ad8f29b177eeaf602da896b5f04adb08ef3d45d8946e997fc6237 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/6d/92/9a4d84049228dec63a97e0e50e0f31200ff5fd1c7047f463bf847bea5f4e/maturin-0.7.5-py2.py3-none-win_amd64.whl#sha256=715aae61031ce0dc20fd2cd02cc4f7c467aca420a496c1fd0213779634561d04 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-macosx_10_7_x86_64, py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/37/34/48289c2e815586862afaf1a51b05f281cbf831c6b7cfd1ec46249a7206dc/maturin-0.7.6-py2.py3-none-macosx_10_7_x86_64.whl#sha256=0e58532b845aad5d1a1df9dd6ef56456d63b737e4a3a30e8572447fbc23d151f (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-manylinux1_i686, py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/6e/73/2b37c6d50a94f5bc590413bdb961b231f08ad60524b958faf943e82cccbe/maturin-0.7.6-py2.py3-none-manylinux1_i686.whl#sha256=4e2f73f97d2f030da42a2758e56e95ce2491afd9a080e70b78b088128145af87 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/17/23/214a227a01365b8f7df89e92bda39c922ff52d925c942262971244bf9c15/maturin-0.7.6-py2.py3-none-manylinux1_x86_64.whl#sha256=a435b280afcba7a1ca7203a60b198d8f93d874db0ffed13ee537c5066160b429 (from https://pypi.org/simple/maturin/), version: 0.7.6
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/57/8f/3294ea791c1290f0fcb47adaa6c2a70a2edd576a32669bc9a24827333448/maturin-0.7.6-py2.py3-none-win32.whl#sha256=ab75ad31257d2238673bde7d402c2e7608e37a8042350ca7fd51f70382a1a638 (from https://pypi.org/simple/maturin/)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/ec/01/d96cbc30b3e8e2590415c9414c3e399779a2bb373b9943241369f464c46d/maturin-0.7.6-py2.py3-none-win_amd64.whl#sha256=90efda63af6c565a986d1e050673e033cbefc3c9b2996fa2fdf9e6d94d5bd179 (from https://pypi.org/simple/maturin/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/0a/51/25d94171411d5acaa56d26c5936375e9b1d7a81e2f4cc6f87af47d166616/maturin-0.7.6.tar.gz#sha256=9eecde82ee37772764d6237b7784912241d0b93292f72ff29a921f33842691ca (from https://pypi.org/simple/maturin/), version: 0.7.6
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-macosx_10_7_x86_64, py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/ca/f2/be2d2e6b5dec29a96f1568103f6b1f6bdbdde3a969647493eaa65ee8fbc5/maturin-0.7.7-py2.py3-none-macosx_10_7_x86_64.whl#sha256=87a3d9a94f9c3b8d3ecc57017cdae2b3f1e0f6bfc851509f0b53c2486f312dcc (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-manylinux1_i686, py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/5a/a7/9a7e1ad6c3da292835cae2d3ee3159fbc99858910c8a73d31658187e5607/maturin-0.7.7-py2.py3-none-manylinux1_i686.whl#sha256=7f7f04de2acf379b1ff8993747f11bfb60760c69caf8c43414212cf7cc4b07ef (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/5f/d7/55075cf6948d1c687b3b0b501c681fd6e16e97995ab573ca8dfa9919771d/maturin-0.7.7-py2.py3-none-manylinux1_x86_64.whl#sha256=aa474d70630833349dac090306fd51a8af2df88080cea74ea4d831b40616ea41 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.7.7
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win32, py3-none-win32: https://files.pythonhosted.org/packages/99/e5/baed40382aec6e641d0345d5241b18e42cbc1ad72ef9330edb45df5aaf30/maturin-0.7.7-py2.py3-none-win32.whl#sha256=5e6390245a023cbdca39d9276035fdee4d892b44d3ab798ccf2c3443d87e3f98 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py2-none-win_amd64, py3-none-win_amd64: https://files.pythonhosted.org/packages/17/64/45f06fa1841b4dbc96a724965ae64d0c1456234c9a15313eb28471ebb373/maturin-0.7.7-py2.py3-none-win_amd64.whl#sha256=4fd7fcf4e40e984274dc9caf80c08fa16a6c7c1f4ca1f694ba2ac3802b7340aa (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/f9/c7/317e422594ab9c0d65b242a4641c1b07a975c9257ad33371bf866f9c27c9/maturin-0.7.7.tar.gz#sha256=2533c648aa8fa19f7a9d4f62282b4adce2f9c07c49f512005f92911be767555e (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.7.7
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/27/a4/9666307d0cd5080f228c802c1598524b543d23c14b59904a7003f1686d79/maturin-0.7.8-py3-none-manylinux1_i686.whl#sha256=985fad51dc1171986f3102dcdd33243f914400d645af4efce378225f70d9ea76 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/96/c3/35b8017c865adefb5b5d09286c50268b20a1e484f58fce1b04db4a918f6f/maturin-0.7.8-py3-none-manylinux1_x86_64.whl#sha256=09da87080414e36774caf1963adf8dec1ea107b0f5f88a597f7d0efa58dd652b (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.7.8
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/fe/81/2a9c18e381643d14cbea0e9a629e1bc64c92e7fb5584c20390ceb28b414b/maturin-0.7.8-py3-none-win32.whl#sha256=8cf7620123fa870aa38a7957106b349c3285ec511cf8dc9cb72bb13415e48f8a (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/0e/ae/47f83dea09dad28504024a7e6ae874741944e124a26127b0da3aa4dd53b6/maturin-0.7.8-py3-none-win_amd64.whl#sha256=d6fb0545bce731640a2ba58b7da31a4a4c997f65e716334ce1920dc70b41dfbd (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/80/11/8fbf4f396f38e8db5f109a61d43c54939b5a00b84e336d0da1b4894dc7bb/maturin-0.7.8.tar.gz#sha256=4aa2a83a94cdd959412073209bc5dea734bb1035b87d69335c3dda079c76d33b (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.7.8
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/71/cd/8562a8c2340b008458db142226e66c0e88b72426a415cb766c922a95ccf4/maturin-0.7.9-py3-none-macosx_10_7_x86_64.whl#sha256=e3bc882f7728273880c8b1589933ccdfbb0fdbd9fa0f57958ba69811b9bbccee (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/02/9c/e4f44c4e3e753a1714aa81edcc74295a0c045d3ca913f57035a3a08b2917/maturin-0.7.9-py3-none-manylinux1_i686.whl#sha256=8f1595336be0958b281f36716f423115d5233a17137a01aecc20baff1007a9d9 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/60/74/8b02792181e8779dbc8329318777d59d089c79fc188acbfb3855c30f1abc/maturin-0.7.9-py3-none-manylinux1_x86_64.whl#sha256=df1358a298e30dee41c16e51b77c931f01017ba703103bb6764372f500dac453 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.7.9
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/79/8e/ad5695023f14ce32a9ba90c9990b60e273f2b974cc82e39f9d92fba5d337/maturin-0.7.9-py3-none-win32.whl#sha256=cc1c7bb83caad728be484de9aa952a71c1f6bdd386ff36a6a4d0c4b99410951e (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/8c/e6/a6a820be679a80ed4f682a7906acb1d433631e722e72bee327b20f65fb29/maturin-0.7.9-py3-none-win_amd64.whl#sha256=7d8fbf2132e98c35aa665a50a44764e4c0340d70795b05cebfb875ebbb512e23 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/a1/ab/531984f5c304e56b47da35df5ea3ed8d862d114551720a434ebb34ce44db/maturin-0.7.9.tar.gz#sha256=13403587b64eb9571fc8886608fac6a301b791d0670ef2fb79e60add39ac8aec (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.7.9
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/4d/93/8ea7de75ba36a8747e85963028ee454a04c87e4135268f5b11ce829cf5c5/maturin-0.8.0_alpha.2-py3-none-macosx_10_7_x86_64.whl#sha256=5d8a8c591289b140a63fb58ea70a14bdc08c3c55896782af35181647dd63b15c (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/94/c6/b80a16a355f0ed010c61d7cc8d80e58deef0562f9165aef64c9f3e31d83c/maturin-0.8.0_alpha.2-py3-none-manylinux1_i686.whl#sha256=9a5b61bef7afbfaecdbf37d4f228ccad73300b44bcc44f0fc7041ed76f1b84d6 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/e4/7f/2a7039622966f8b998e59fdf25368889fad06d94fd4842e48a9eef2a3013/maturin-0.8.0_alpha.2-py3-none-manylinux1_x86_64.whl#sha256=cbab314eca8302779ce2b94f15e796b313dca218654361a6496c1713674d2b04 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.0-alpha.2
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux2014_aarch64: https://files.pythonhosted.org/packages/23/7c/af90150ae005be1cd985f4a3595882721eb7b2a232e9ea6f3b4728bac64a/maturin-0.8.0_alpha.2-py3-none-manylinux2014_aarch64.whl#sha256=a50e5e56fb6cd13c2d08658b3f691f5289a11a482063e917c8aa1bd75fc92997 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/f8/e1/d4cdc55c5dc3dc333ffc6119f5d2aa038364f0eb92e57692321d36a7c812/maturin-0.8.0_alpha.2-py3-none-win32.whl#sha256=bb7310b49bf8f85afeb321c20ad6286b49b93df65be995e120f51cd8ec83019c (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/71/79/11bbd794cff125ab0aee7556b33a87d56e2311204ff6e518f6ae37068d4f/maturin-0.8.0_alpha.2-py3-none-win_amd64.whl#sha256=efb0d1ed2c71bcf729cac36405d96fc1ba2835dc7c256e96db20db99b072bb59 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/7c/6e/4c6d4957bb1b77e6e271e15804a3c0aa2cb2d0f071b3488561d1350ac948/maturin-0.8.0_alpha.2.tar.gz#sha256=0aa48f7c47d9cf74986bc0c67acdd8aa8d2c58bc6a51234fb30d0846e7c2718c (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.0_alpha.2
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/84/8b/31cf61691f46ea84c9c1e01693bdd7398b69759468ca466c449913700b55/maturin-0.8.0_beta.1-py3-none-macosx_10_7_x86_64.whl#sha256=a94cf0d05668506e0a0682892e846afcfc78b2a23423c8088165cd0e00efaba1 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/1a/b2/9d70390662df0af62be35cb8ffa217006ba61ab8d7ac7071fbdfd57ecc13/maturin-0.8.0_beta.1-py3-none-manylinux1_i686.whl#sha256=cecfd402a3150532fac45b8afa8d7e99f2844661146afeb03969aee63f337c64 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/b3/75/67426220de0dc43006d07372a58506af0e82126355614c0a4dc2190c0b30/maturin-0.8.0_beta.1-py3-none-manylinux1_x86_64.whl#sha256=61d04dd532be6626ddd7c0266e8974cfca82970a7da1a57daab0cd7534c79e58 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.0-beta.1
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux2014_aarch64: https://files.pythonhosted.org/packages/42/5c/72e443fdb921f6cfc0208d5971528b8e72c4718ba133092fc199abf17edb/maturin-0.8.0_beta.1-py3-none-manylinux2014_aarch64.whl#sha256=f677b32d7df5b38163c05c418f4933cd12b43c9d6697c0dff38d04a76d5462cd (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/17/86/6b2cb55a6887c83785fa3d999407fa88c93e4ece41210776c9554bab6063/maturin-0.8.0_beta.1-py3-none-win32.whl#sha256=baaa3b167e225d02b2786e66f1bf0a889eb69a6beaf55640c960ba828034bfff (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/6c/b4/51224bc584ace03c9f59fd8aaa5333a459adb8ae040bfbe5eb7ba3058410/maturin-0.8.0_beta.1-py3-none-win_amd64.whl#sha256=26f27118e79034c896edeb7088e3e22c6f1fdea4dd33bf07dd3cd9c13f42119a (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/a0/67/b32a3ed0638eb61c9315b7e306b1f3fbb9738481b6cc775a483c564ff5e4/maturin-0.8.0_beta.1.tar.gz#sha256=ac6d4c418539b43dff51f61d898d1747a9de13ae863cc854b0e3a87921105fb4 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.0_beta.1
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/90/c9/3cbe8b944e6d9abc46407187446f171f92d94eca003ebf6164be67809d5c/maturin-0.8.0-py3-none-macosx_10_7_x86_64.whl#sha256=57078f62c8486ecd1c3a2d9614078562a31c5f55b65d4bb8563452ebc19b4086 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/85/7f/870e09c685fc90e041117e149220f3924ca1bb77489a4cffa474b45aee17/maturin-0.8.0-py3-none-manylinux1_i686.whl#sha256=b0a655d6b9acb83a6dcaa17298f55392a3c6b2cf35f8a6cec3277f57a3167314 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/d9/c7/fee914e7c908ae7325b3fb2e44e7ef71e37bb473a2a0848a01312669259a/maturin-0.8.0-py3-none-manylinux1_x86_64.whl#sha256=737fe625333e06ab4d7ab0c9671a30c03346f6f33076c41f384ad1ee755d9868 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.0
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux2014_aarch64: https://files.pythonhosted.org/packages/ad/86/f7e694beb13bee19f5eabd3055dd62bcfaec6465d1bcf687c2abe052cc04/maturin-0.8.0-py3-none-manylinux2014_aarch64.whl#sha256=c7d31af7d080a516868643bfd28174b78567e05131b139faab5b64c5b4513bb5 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/00/24/ee33dc1a11a974cb29cad199531eaa7675cb464a7c4a77024df70a090ac6/maturin-0.8.0-py3-none-win32.whl#sha256=34bd16fef95bec0376886162675b9a1508045aa4c4a7e8c518e1a49c671fc2a4 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/88/d3/437f65b85e4a41d94b1519a081ccaca9e8a04763922f2c62eac33ecebd9b/maturin-0.8.0-py3-none-win_amd64.whl#sha256=c3035776844b39b70eb26163304cdc0b584ba5078058e3564c63a9b99623970e (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/a5/31/72d9d1c7796b771a1ac0f0b341c1f5a488bd4bb7ef20c13506a6670e6d09/maturin-0.8.0.tar.gz#sha256=c0f4c15d42ba6a7c7b7fbfbff6ac4e8fe5ebe0e8d67f0579acf371cd5d0125db (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.0
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/d4/8b/26dd00f5789bfe03f2887bd77a22acd25741ccc8b9907d8629f002e85b6f/maturin-0.8.1-py3-none-macosx_10_7_x86_64.whl#sha256=2da7435f234fb4fede0f60cc004cf444c0ff373165af83bde750254176aa016e (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/62/be/92bdd13c953af38f2b23bd2df1675f4ade0877d02414ef4827081c41f412/maturin-0.8.1-py3-none-manylinux1_i686.whl#sha256=9840e29148a96c79153704f311f3273964c84202dc42cc7080187af94abadeff (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/82/10/191f943049598b6bfe47a3786123aaecda8de8f44b719878391d67acc9e2/maturin-0.8.1-py3-none-manylinux1_x86_64.whl#sha256=c7551904b859285fd4f63a7623f650076317953e3454b29c6390529c962f39d2 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.1
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux2014_aarch64: https://files.pythonhosted.org/packages/d6/55/0da257a114ddcaae6327b4e959e4009c57b793e9a334749ee70838ec90e3/maturin-0.8.1-py3-none-manylinux2014_aarch64.whl#sha256=ced48c1331d0baa08d25a5f5b76daa2aafb1b2dddedce73960b37facdb24152d (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/9a/21/9b3ba27bb14c9dcdf3a6bcf4d31ecf5d77364beab350911a3e10e378aabd/maturin-0.8.1-py3-none-win32.whl#sha256=d7663fc0a21131936e65bd7b501cd57c8107c8cb6578ef82aab92bd52ea548b2 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/84/23/e5e37c07f01b3c563ae31a5a39a46634e7dcbc6f7210bcaf223a213138a0/maturin-0.8.1-py3-none-win_amd64.whl#sha256=078e45fcefb70bc5f34b12b22f5305315cc95da7171b4e58743c82d29f0a7780 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/a7/df/a9060d8e4639feec0e8ab98081e5b9e7bd302db29b666cc79c2c6baf4397/maturin-0.8.1.tar.gz#sha256=f09a79244b54387951a997557c5bbbb26233ddeed375024a1e0242b9bf110a79 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.1
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/8b/b4/6ad23f33c80946bb1368c3f639fe0a0dc0dbeb06fdfb90a8cb49bca1ca69/maturin-0.8.2_alpha.1-py3-none-macosx_10_7_x86_64.whl#sha256=54621d3d301cbcb95a2983eebc122faa8b59927ac27d0753b843f092bffdc552 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/cf/3f/19ad0ee7abd13bb85fe45b5eb718bc6fb53c05be134b00dceea9d3b03a1b/maturin-0.8.2_alpha.1-py3-none-manylinux1_i686.whl#sha256=aed6ce57188a8d4099dfa11e46d78c8fcdf707f41a9d17d6c8d6d0197d6c3dad (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/f1/ef/b63aef00f66839a0e2139caa55d88bf04bb5134ef45ff9611564481d2c2c/maturin-0.8.2_alpha.1-py3-none-manylinux1_x86_64.whl#sha256=d6299840c2f8423ed2f229850a823ce92bbeed47a86be31bda83857049541173 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.2-alpha.1
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux2014_aarch64: https://files.pythonhosted.org/packages/16/66/89e76ca7504bc819ca5b33b409f21e5a9acefd198b47d4047ee876532565/maturin-0.8.2_alpha.1-py3-none-manylinux2014_aarch64.whl#sha256=d57f910b9eb922e816609b5ec21d60ec6355f2931c43fa1652c8eb563093604a (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/26/11/1a88e4f1d7af570ae7bfffd0cc2edf3723c5d91dc660a7e3304cce3a43d9/maturin-0.8.2_alpha.1-py3-none-win32.whl#sha256=995d51e366d6ea58d0ba8fff64dedda4993380505f5002eec749d7c2952e7329 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/9f/ad/b0bff816fec064bcec4bd7a34ca4cfe48ff6eea568f80398ff9934883c19/maturin-0.8.2_alpha.1-py3-none-win_amd64.whl#sha256=312c3a514ffa223630f8e80a51521eba9a2dd8865dec2307b293a96628ac6ac0 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/01/e1/c3847eabb654fe45ef811311a7b36e5e3c9eba3af446a5fbbe2eceecef6a/maturin-0.8.2_alpha.1.tar.gz#sha256=f06143dc296e6b884cdd3e62edc10f2d12d1df2ca228d5fd3d136aae1d496568 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.2_alpha.1
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-macosx_10_7_x86_64: https://files.pythonhosted.org/packages/06/ef/2e3f530db3f22ab590874836882f04a69bb0b69c3e5587095ce26487bc41/maturin-0.8.2-py3-none-macosx_10_7_x86_64.whl#sha256=cd2c274814167b9e8dd3830660d2e9f4b425e1f8e54e909b8fd7a3a5f73eee02 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux1_i686: https://files.pythonhosted.org/packages/b3/e0/f6eb17d113d65950d6ba4582cc5b8e8c31382e88c7014300a4fa6529766c/maturin-0.8.2-py3-none-manylinux1_i686.whl#sha256=673960cf728820555c708ad3ae7322ffa33d774fce1421e6ccf85ff54116327a (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/8d/3d/819c01c7c483f4917cc5325a42769ed587412b8b497115f45fa900fffe04/maturin-0.8.2-py3-none-manylinux1_x86_64.whl#sha256=ba6f9a69defe51a4a6f7d5d912141089f6233d22df37cb855ab547b09d1bd3f6 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.2
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-manylinux2014_aarch64: https://files.pythonhosted.org/packages/30/a3/a28c63399b9ba33d9717fdbcc82faf1499159b2de7a4babc2dcf9891949d/maturin-0.8.2-py3-none-manylinux2014_aarch64.whl#sha256=dfe1f56ff8a6f2fc86a4f4a367d7f99cab71a8cf024cf9fa55b85e757bcf5729 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win32: https://files.pythonhosted.org/packages/51/8c/f35a87b457d0c1749cc59f9fe44489bccff0670577fce46f2d5c7fec9b0d/maturin-0.8.2-py3-none-win32.whl#sha256=235205cbaad0833097ef087a3c9f77849a776bee452ffdec24a196d4447d0c17 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Skipping link: none of the wheel's tags match: py3-none-win_amd64: https://files.pythonhosted.org/packages/84/09/361a4590ef20ee9b609d5d9a0470d2d447e6959ef04ede894f82018f293f/maturin-0.8.2-py3-none-win_amd64.whl#sha256=6d12707046f5cc43b85c2339aed97acd3726c27b65a8e56e2007e1a2c1dbfe61 (from https://pypi.org/simple/maturin/) (requires-python:>=3.5)
+[0m[91m    Found link https://files.pythonhosted.org/packages/5b/09/8fcae89ab6598631e21783800f32707f35c77dece0f3eb74f5661553a3c7/maturin-0.8.2.tar.gz#sha256=0b7fcd3e23b1ad824b56e5a6bdc525016d78ac8021fc6dae9c10c24baa400edc (from https://pypi.org/simple/maturin/) (requires-python:>=3.5), version: 0.8.2
+[0m[91m  Given no hashes to check 18 links for project 'maturin': discarding no candidates
+[0m[91m  Using version 0.8.2 (newest of versions: 0.7.1, 0.7.2, 0.7.6, 0.7.7, 0.7.8, 0.7.9, 0.8.0, 0.8.1, 0.8.2)
+[0m[91m  Collecting maturin
+[0m[91m    Created temporary directory: /tmp/pip-unpack-n2dl0dyy
+[0m[91m    Getting credentials from keyring for files.pythonhosted.org
+[0m[91m    Looking up "https://files.pythonhosted.org/packages/8d/3d/819c01c7c483f4917cc5325a42769ed587412b8b497115f45fa900fffe04/maturin-0.8.2-py3-none-manylinux1_x86_64.whl" in the cache
+[0m[91m    Current age based on date: 1859
+    Ignoring unknown cache-control directive: immutable
+[0m[91m    Freshness lifetime from max-age: 365000000
+[0m[91m    The response is "fresh", returning cached response
+[0m[91m    365000000 > 1859
+[0m[91m    Using cached maturin-0.8.2-py3-none-manylinux1_x86_64.whl (4.9 MB)
+[0m[91m    Added maturin from https://files.pythonhosted.org/packages/8d/3d/819c01c7c483f4917cc5325a42769ed587412b8b497115f45fa900fffe04/maturin-0.8.2-py3-none-manylinux1_x86_64.whl#sha256=ba6f9a69defe51a4a6f7d5d912141089f6233d22df37cb855ab547b09d1bd3f6 to build tracker '/tmp/pip-req-tracker-iufz24u5'
+    Removed maturin from https://files.pythonhosted.org/packages/8d/3d/819c01c7c483f4917cc5325a42769ed587412b8b497115f45fa900fffe04/maturin-0.8.2-py3-none-manylinux1_x86_64.whl#sha256=ba6f9a69defe51a4a6f7d5d912141089f6233d22df37cb855ab547b09d1bd3f6 from build tracker '/tmp/pip-req-tracker-iufz24u5'
+[0m[91m  1 location(s) to search for versions of toml:
+[0m[91m  * https://pypi.org/simple/toml/
+[0m[91m  Fetching project page and analyzing links: https://pypi.org/simple/toml/
+[0m[91m  Getting page https://pypi.org/simple/toml/
+[0m[91m  Found index url https://pypi.org/simple
+[0m[91m  Getting credentials from keyring for https://pypi.org/simple
+[0m[91m  Getting credentials from keyring for pypi.org
+[0m[91m  Looking up "https://pypi.org/simple/toml/" in the cache
+[0m[91m  Request header has "max_age" as 0, cache bypassed
+[0m[91m  https://pypi.org:443 "GET /simple/toml/ HTTP/1.1" 304 0
+[0m[91m    Found link https://files.pythonhosted.org/packages/11/79/d88a538950184342693ed829db6a59999513eade0706a26f4bf6f76122fa/toml-0.6.0.tar.gz#sha256=0103cd3598cac83f5c4eb281c1e3381aec214776b8c719a373c7d07f52c18d9b (from https://pypi.org/simple/toml/), version: 0.6.0
+    Found link https://files.pythonhosted.org/packages/69/a4/f7d29d4cb673a6c18486802f84d287d48cdd2af810d6df4211194967aa20/toml-0.6.5.tar.gz#sha256=e4d9f53755b2bdeab220b455b6654ba1080f2eee3dc3ab9adf245762c3de9f2b (from https://pypi.org/simple/toml/), version: 0.6.5
+[0m[91m    Found link https://files.pythonhosted.org/packages/9d/79/457a4f0212935884ac2b5632d88f69a0123825fae5a1da42119f6bc5649a/toml-0.7.0.tar.gz#sha256=58bf09e991d5474191420d206b72fa6f50ac5503269c5bd936123e4b545342f2 (from https://pypi.org/simple/toml/), version: 0.7.0
+[0m[91m    Found link https://files.pythonhosted.org/packages/a2/98/a1b3df99dfe03b7a9cf9ccfd8fb53957cb882c5d25110f9852cb119a92d9/toml-0.7.1.tar.gz#sha256=53dd619be5a027e9c8510dd492113f643df1cccc13188a8698914e51720a1a89 (from https://pypi.org/simple/toml/), version: 0.7.1
+[0m[91m    Found link https://files.pythonhosted.org/packages/72/e4/c69b62ee516758aff09aee08bbbef965b6b94bc10a1cf11f05f8d36a3b4c/toml-0.8.0.tar.gz#sha256=24250090512f1295d75f3db558ba26130b56b7dec7d30abbfc3bbde89a67825d (from https://pypi.org/simple/toml/), version: 0.8.0
+[0m[91m    Found link https://files.pythonhosted.org/packages/ea/b9/caf57d47c401a37a538b5d27660391b763425d888261af2441c2432fb6be/toml-0.8.1.tar.gz#sha256=b9fa91d6fa70958c47905be17750283692c95ef06fac52671229c461b49d503d (from https://pypi.org/simple/toml/), version: 0.8.1
+[0m[91m    Found link https://files.pythonhosted.org/packages/92/f4/559c5dfe5755c5730ba18cb8c8f06c49789d9e1880219f9565b6f1352acf/toml-0.8.2.tar.gz#sha256=1260e1b94ca934ab48229720a88ce71910c886e136e209b8d76a83528c56e499 (from https://pypi.org/simple/toml/), version: 0.8.2
+[0m[91m    Found link https://files.pythonhosted.org/packages/0c/d4/48756e8b47c7638695646de87529ea7d6feba132b741a8970a17eeeebeed/toml-0.9.0.tar.gz#sha256=d803e90b790ca561ae08f77c7b728ca11185d646c769d09d965879c129ef0dee (from https://pypi.org/simple/toml/), version: 0.9.0
+[0m[91m    Found link https://files.pythonhosted.org/packages/5c/44/23bda89772ea8da0c4561637b6694abd1d21805e107bc324e66f4b54cdb3/toml-0.9.1.tar.gz#sha256=e835834f1de5c60657e588a4cc48544945e03569a3d9f8b489436abb987840cf (from https://pypi.org/simple/toml/), version: 0.9.1
+[0m[91m    Found link https://files.pythonhosted.org/packages/5c/b2/8a18ced00a43f2cc5261f9ac9f1c94621251400a80db1567177719355177/toml-0.9.2.tar.gz#sha256=b3953bffe848ad9a6d554114d82f2dcb3e23945e90b4d9addc9956f37f336594 (from https://pypi.org/simple/toml/), version: 0.9.2
+[0m[91m    Found link https://files.pythonhosted.org/packages/af/06/edd820aa8a04ba82354a841af00aa28dcde391a7759a1e34579bb33d63bf/toml-0.9.3.1.tar.gz#sha256=e1e8c220046889234df5ec688d6f97b734fc4a08a6d8edfc176f4e6abf90cfb5 (from https://pypi.org/simple/toml/), version: 0.9.3.1
+[0m[91m    Found link https://files.pythonhosted.org/packages/f5/f9/044110c267e6408013b85166a7cfcd352cf85275aa8ce700aa5c0eb407ba/toml-0.9.4.tar.gz#sha256=8e86bd6ce8cc11b9620cb637466453d94f5d57ad86f17e98a98d1f73e3baab2d (from https://pypi.org/simple/toml/), version: 0.9.4
+[0m[91m    Found link https://files.pythonhosted.org/packages/c7/19/76c3cb84949a0593767b32b9be83a604d8a68c3580ff5d0ee64856b39ade/toml-0.9.6-py2.py3-none-any.whl#sha256=a7901919d3e4f92ffba7ff40a9d697e35bbbc8a8049fe8da742f34c83606d957 (from https://pypi.org/simple/toml/), version: 0.9.6
+[0m[91m    Found link https://files.pythonhosted.org/packages/0e/e8/1aa958599e5326b690a31334112da68a9b75e7563879e2c5103ca219d30a/toml-0.9.6.tar.gz#sha256=380178cde50a6a79f9d2cf6f42a62a5174febe5eea4126fe4038785f1d888d42 (from https://pypi.org/simple/toml/), version: 0.9.6
+[0m[91m    Skipping link: unsupported archive format: .egg: https://files.pythonhosted.org/packages/07/33/ccf5b4258d599e66fb6a4a4d0d10d4ee24cefd201f1a269c0321ce9a9ca9/toml-0.10.0-py2.7.egg#sha256=f1db651f9657708513243e61e6cc67d101a39bad662eaa9b5546f789338e07a3 (from https://pypi.org/simple/toml/)
+[0m[91m    Found link https://files.pythonhosted.org/packages/a2/12/ced7105d2de62fa7c8fb5fce92cc4ce66b57c95fb875e9318dba7f8c5db0/toml-0.10.0-py2.py3-none-any.whl#sha256=235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e (from https://pypi.org/simple/toml/), version: 0.10.0
+[0m[91m    Found link https://files.pythonhosted.org/packages/b9/19/5cbd78eac8b1783671c40e34bb0fa83133a06d340a38b55c645076d40094/toml-0.10.0.tar.gz#sha256=229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c (from https://pypi.org/simple/toml/), version: 0.10.0
+[0m[91m    Found link https://files.pythonhosted.org/packages/9f/e1/1b40b80f2e1663a6b9f497123c11d7d988c0919abbf3c3f2688e448c5363/toml-0.10.1-py2.py3-none-any.whl#sha256=bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88 (from https://pypi.org/simple/toml/), version: 0.10.1
+[0m[91m    Found link https://files.pythonhosted.org/packages/da/24/84d5c108e818ca294efe7c1ce237b42118643ce58a14d2462b3b2e3800d5/toml-0.10.1.tar.gz#sha256=926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f (from https://pypi.org/simple/toml/), version: 0.10.1
+[0m[91m  Given no hashes to check 4 links for project 'toml': discarding no candidates
+[0m[91m  Using version 0.10.1 (newest of versions: 0.10.0, 0.10.1)
+[0m[91m  Collecting toml~=0.10.0
+[0m[91m    Created temporary directory: /tmp/pip-unpack-ft4d_jip
+[0m[91m    Getting credentials from keyring for files.pythonhosted.org
+[0m[91m    Looking up "https://files.pythonhosted.org/packages/9f/e1/1b40b80f2e1663a6b9f497123c11d7d988c0919abbf3c3f2688e448c5363/toml-0.10.1-py2.py3-none-any.whl" in the cache
+[0m[91m    Current age based on date: 1860
+[0m[91m    Ignoring unknown cache-control directive: immutable
+[0m[91m    Freshness lifetime from max-age: 365000000
+[0m[91m    The response is "fresh", returning cached response
+[0m[91m    365000000 > 1860
+[0m[91m    Using cached toml-0.10.1-py2.py3-none-any.whl (19 kB)
+[0m[91m    Added toml~=0.10.0 from https://files.pythonhosted.org/packages/9f/e1/1b40b80f2e1663a6b9f497123c11d7d988c0919abbf3c3f2688e448c5363/toml-0.10.1-py2.py3-none-any.whl#sha256=bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88 (from maturin) to build tracker '/tmp/pip-req-tracker-iufz24u5'
+[0m[91m    Removed toml~=0.10.0 from https://files.pythonhosted.org/packages/9f/e1/1b40b80f2e1663a6b9f497123c11d7d988c0919abbf3c3f2688e448c5363/toml-0.10.1-py2.py3-none-any.whl#sha256=bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88 (from maturin) from build tracker '/tmp/pip-req-tracker-iufz24u5'
+[0m[91m  Installing collected packages: toml, maturin
+[0m[91m    Created temporary directory: /tmp/pip-unpacked-wheel-9e9ielgv
+[0m[91m
+[0m[91m    Created temporary directory: /tmp/pip-unpacked-wheel-m8ao3t5u
+[0m[91m
+[0m[91m  Successfully installed maturin-0.8.2 toml-0.10.1
+[0m[91m  Removed build tracker: '/tmp/pip-req-tracker-iufz24u5'
+[0m  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+[91m  Running command /usr/bin/python3 /usr/local/lib/python3.7/dist-packages/pip/_vendor/pep517/_in_process.py get_requires_for_build_wheel /tmp/tmpsrvriptj
+[0m  Getting requirements to build wheel: finished with status 'done'
+    Created temporary directory: /tmp/pip-modern-metadata-60u_5apa
+    Preparing wheel metadata: started
+[91m    Running command /usr/bin/python3 /usr/local/lib/python3.7/dist-packages/pip/_vendor/pep517/_in_process.py prepare_metadata_for_build_wheel /tmp/tmpjrtr_2or
+[0m[91m    💥 maturin failed
+      Caused by: The given list of python interpreters is invalid
+[0m[91m      Caused by: Python interpreter `python` doesn't exist
+[0m[91m    Checking for Rust toolchain....
+[0m[91m    Running `maturin pep517 write-dist-info --metadata-directory /tmp/pip-modern-metadata-60u_5apa --bindings=pyo3 --cargo-extra-args=--features python-extension`
+[0m[91m    Error: Command '['maturin', 'pep517', 'write-dist-info', '--metadata-directory', '/tmp/pip-modern-metadata-60u_5apa', '--bindings=pyo3', '--cargo-extra-args=--features python-extension']' returned non-zero exit status 1.
+[0m    Preparing wheel metadata: finished with status 'error'
+[91mERROR: Command errored out with exit status 1: /usr/bin/python3 /usr/local/lib/python3.7/dist-packages/pip/_vendor/pep517/_in_process.py prepare_metadata_for_build_wheel /tmp/tmpjrtr_2or Check the logs for full command output.
+[0mException information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/cli/base_command.py", line 188, in _main
+    status = self.run(options, args)
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/cli/req_command.py", line 185, in wrapper
+    return func(self, options, args)
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/commands/install.py", line 333, in run
+    reqs, check_supported_wheels=not options.target_dir
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/resolution/legacy/resolver.py", line 179, in resolve
+    discovered_reqs.extend(self._resolve_one(requirement_set, req))
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/resolution/legacy/resolver.py", line 362, in _resolve_one
+    abstract_dist = self._get_abstract_dist_for(req_to_install)
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/resolution/legacy/resolver.py", line 314, in _get_abstract_dist_for
+    abstract_dist = self.preparer.prepare_linked_requirement(req)
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/operations/prepare.py", line 488, in prepare_linked_requirement
+    req, self.req_tracker, self.finder, self.build_isolation,
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/operations/prepare.py", line 91, in _get_prepared_distribution
+    abstract_dist.prepare_distribution_metadata(finder, build_isolation)
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/distributions/sdist.py", line 40, in prepare_distribution_metadata
+    self.req.prepare_metadata()
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/req/req_install.py", line 550, in prepare_metadata
+    self.metadata_directory = self._generate_metadata()
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/req/req_install.py", line 537, in _generate_metadata
+    backend=self.pep517_backend,
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/operations/build/metadata.py", line 37, in generate_metadata
+    metadata_dir
+  File "/usr/local/lib/python3.7/dist-packages/pip/_vendor/pep517/wrappers.py", line 179, in prepare_metadata_for_build_wheel
+    '_allow_fallback': _allow_fallback,
+  File "/usr/local/lib/python3.7/dist-packages/pip/_vendor/pep517/wrappers.py", line 258, in _call_hook
+    extra_environ=extra_environ
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/utils/subprocess.py", line 274, in runner
+    spinner=spinner,
+  File "/usr/local/lib/python3.7/dist-packages/pip/_internal/utils/subprocess.py", line 241, in call_subprocess
+    raise InstallationError(exc_msg)
+pip._internal.exceptions.InstallationError: Command errored out with exit status 1: /usr/bin/python3 /usr/local/lib/python3.7/dist-packages/pip/_vendor/pep517/_in_process.py prepare_metadata_for_build_wheel /tmp/tmpjrtr_2or Check the logs for full command output.
+Removed file:///root/maturin-bug-reproduce from build tracker '/tmp/pip-req-tracker-iufz24u5'
+Removed build tracker: '/tmp/pip-req-tracker-iufz24u5'
