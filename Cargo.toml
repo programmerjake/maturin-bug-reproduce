@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: LGPL-2.1-or-later
+# See Notices.txt for copyright information
+[package]
+name = "maturin-bug-reproduce"
+version = "0.1.0"
+authors = ["Jacob Lifshay <programmerjake@gmail.com>"]
+edition = "2018"
+license = "LGPL-2.1-or-later"
+
+[features]
+python = ["pyo3"]
+python-extension = ["python", "pyo3/extension-module"]
+
+[lib]
+name = "maturin_bug_reproduce"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.11", optional = true }
